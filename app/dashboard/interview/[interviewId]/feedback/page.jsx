@@ -28,6 +28,14 @@ function feedback({ params }) {
     console.log(result);
     setFeedbackList(result);
   };
+  // Ensure ratings are valid numbers
+  const totalScore = feedbackList.reduce(
+    (sum, item) => sum + Number(item.rating || 0),
+    0
+  );
+  const overallRating = feedbackList.length
+    ? (totalScore / feedbackList.length).toFixed(1)
+    : "N/A";
 
   return (
     <div className="p-10">
@@ -43,9 +51,16 @@ function feedback({ params }) {
           <h2 className="font-bold text-2xl">
             Here is your interview feedback
           </h2>
-          <h2 className="text-primary text-lg my-3">
+          {/* <h2 className="text-primary text-lg my-3">
             Your overall interview rating:<strong>7/10</strong>
+          </h2> */}
+
+          <h2 className="text-primary text-lg my-3">
+            Your overall interview rating: <strong>{overallRating}/10</strong>
           </h2>
+          {/* <h2 className="text-gray-600 text-sm italic">
+            "Every interview is a step toward success. Keep improving!"
+          </h2> */}
 
           <h2 className="text-sm text-gray-500">
             Find below interview question with correct answer ,your answer and
