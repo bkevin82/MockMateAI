@@ -82,7 +82,7 @@ function Interview({ params }) {
           </div>
         </div>
 
-        <div>
+        <div className="flex flex-col items-center justify-center h-full">
           {webCamEnabled ? (
             <Webcam
               onUserMedia={() => setWebCamEnabled(true)}

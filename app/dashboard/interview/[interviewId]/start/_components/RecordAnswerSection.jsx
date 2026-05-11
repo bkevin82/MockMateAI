@@ -35,7 +35,7 @@ function RecordAnswerSection({
 
   useEffect(() => {
     results.map((result) =>
-      setUserAnswer((prevAns) => prevAns + result?.transcript)
+      setUserAnswer((prevAns) => prevAns + result?.transcript),
     );
   }, [results]);
 
@@ -129,18 +129,6 @@ function RecordAnswerSection({
           "Record Answer"
         )}
       </Button>
-
-      {/* <Button onClick={() => console.log(userAnswer)}>Show User Answer</Button> */}
-      {/* <h1>Recording: {isRecording.toString()}</h1>
-      <button onClick={isRecording ? stopSpeechToText : startSpeechToText}>
-        {isRecording ? "Stop Recording" : "Start Recording"}
-      </button>
-      <ul>
-        {results.map((result) => (
-          <li key={result.timestamp}>{result.transcript}</li>
-        ))}
-        {interimResult && <li>{interimResult}</li>}
-      </ul> */}
     </div>
   );
 }
